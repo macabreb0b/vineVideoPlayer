@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="styles.css"></style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id='vine-content' class="frame">
+        <!-- replace the url in the 'src' tag below to replace the starting vid -->
+        <iframe 
+          class="vine-embed" 
+          src="https://vine.co/v/MrZH1BZ3WQw/embed/simple?audio=1" 
+          width="500" 
+          height="500" 
+          frameborder="0">
+        </iframe>
+        
+        <script 
+          async 
+          src="http://platform.vine.co/static/scripts/embed.js" 
+          charset="utf-8">
+        </script>
+      </div>
+    </div>
+    <script type='text/javascript'>
+      $(function() {
+        var videoUrls = [
+          "https://vine.co/v/MrZH1BZ3WQw/embed", // this is the same as the start vid, for when it loops back around
+          "https://vine.co/v/MXhPJVr2uvQ/embed",
+          "https://vine.co/v/MXMwbAaAdxi/embed",
+          "https://vine.co/v/MXraaKzTjT1/embed",
+          "https://vine.co/v/MXWrDibZpgd/embed",
+          "https://vine.co/v/MXgrBdIPnPt/embed",
+          "https://vine.co/v/Mgl1vxnHimg/embed",
+          "https://vine.co/v/MXX1b0rDMiX/embed"];
+        var idx = 1;
+        var $iframe = $('iframe');
+        var hangTime = 6000; // this is the loop time (in MS)
+        
+        setInterval(function() {
+          var newVid = videoUrls[idx]
+          // if you want audio, comment out line 43 and un-comment line 44
+          $iframe.attr('src', newVid + '/simple');
+          // $iframe.attr('src', newVid + '/simple?audio=1');
+          idx += 1;
+          idx = idx % videoUrls.length;
+        }, hangTime); 
+      })
+    </script>
+  </body>
+</html>

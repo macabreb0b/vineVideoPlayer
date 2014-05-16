@@ -1,0 +1,30 @@
+div {
+  border: thin black solid;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+html * {
+  box-sizing: border-box;
+}
+
+.container {
+
+  width: 600px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.frame, iframe {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -250px;
+  margin-top: -250px;
+}
